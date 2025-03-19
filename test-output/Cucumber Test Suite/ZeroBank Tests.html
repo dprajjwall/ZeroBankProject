@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>TestNG:  ZeroBank Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>ZeroBank Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Mar 19 09:41:33 IST 2025</td>
+</tr>
+<tr><td>Total time:</td><td>264 seconds (264888 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Excess fund transfer between accounts", "Excess Fund Transfer"</td>
+<td><div><pre>java.lang.AssertionError: Error message mismatch! expected [true] but found [false]
+	at stepDefinitions.ExcessFundSteps.user_should_see_the_error_message_excess(ExcessFundSteps.java:84)
+	at ✽.User should see the error message &quot;Insufficient funds&quot; for excess fund transfer(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/ExcessFund.feature:12)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1719854757", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1719854757'><pre>java.lang.AssertionError: Error message mismatch! expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at stepDefinitions.ExcessFundSteps.user_should_see_the_error_message_excess(ExcessFundSteps.java:84)
+	at ✽.User should see the error message &quot;Insufficient funds&quot; for excess fund transfer(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/ExcessFund.feature:12)
+</pre></div></td>
+<td>17</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Attempt to transfer a negative amount", "Negative Amount Fund Transfer"</td>
+<td><div><pre>java.lang.AssertionError: Error message mismatch! expected [true] but found [false]
+	at stepDefinitions.NegativeAmountSteps.user_should_see_the_error_message_negative_amount(NegativeAmountSteps.java:81)
+	at ✽.User should see the error message &quot;Invalid amount entered&quot; for negative amount transfer(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/NegativeAmount.feature:11)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1476533308", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1476533308'><pre>java.lang.AssertionError: Error message mismatch! expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at stepDefinitions.NegativeAmountSteps.user_should_see_the_error_message_negative_amount(NegativeAmountSteps.java:81)
+	at ✽.User should see the error message &quot;Invalid amount entered&quot; for negative amount transfer(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/NegativeAmount.feature:11)
+</pre></div></td>
+<td>17</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successfully scheduling a future-dated bill payment", "Schedule a Future Bill Payment"</td>
+<td><div><pre>java.lang.AssertionError: expected [The payment was successfully submitted.] but found [The bill payment has been scheduled successfully.]
+	at stepDefinitions.FuturePayBillSteps.user_should_see_success_message(FuturePayBillSteps.java:81)
+	at ✽.User should see a confirmation message &quot;The bill payment has been scheduled successfully.&quot;(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/FuturePayBill.feature:11)
+... Removed 6 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace382055690", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace382055690'><pre>java.lang.AssertionError: expected [The payment was successfully submitted.] but found [The bill payment has been scheduled successfully.]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepDefinitions.FuturePayBillSteps.user_should_see_success_message(FuturePayBillSteps.java:81)
+	at ✽.User should see a confirmation message &quot;The bill payment has been scheduled successfully.&quot;(file:///C:/Users/dpraj/OneDrive/Desktop/Zero_Bank_demo/Zero_Capston_Project_demo/src/test/resources/features/FuturePayBill.feature:11)
+</pre></div></td>
+<td>19</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Login", "Login Functionality"</td>
+<td></td>
+<td>11</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User downloads an account statement", "Download Account Statement"</td>
+<td></td>
+<td>18</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful fund transfer between accounts", "PayBill Functionality"</td>
+<td></td>
+<td>19</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful logout from Zero Bank", "User Logout"</td>
+<td></td>
+<td>14</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to Account Summary and Verify Account Types", "Account Summary Functionality"</td>
+<td></td>
+<td>21</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful fund transfer between accounts", "Fund Transfer Functionality"</td>
+<td></td>
+<td>18</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Attempting to pay a bill without entering the amount", "Pay Bills Without Entering Amount"</td>
+<td></td>
+<td>18</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that all expected account types are displayed", "Verifying Account types"</td>
+<td></td>
+<td>17</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add Payee with Missing Details", "Add New Payee"</td>
+<td></td>
+<td>19</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user session expires after logout", "Session Expiry After Logout"</td>
+<td></td>
+<td>18</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User enters incorrect credentials", "Invalid Login"</td>
+<td></td>
+<td>5</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successfully Add a New Payee", "Add a New Payee"</td>
+<td></td>
+<td>21</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+<tr>
+<td title='runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User tries to login without entering credentials", "Empty Login Fields"</td>
+<td></td>
+<td>4</td>
+<td>runners.TestRunner@f5958c9</td></tr>
+</table><p>
+</body>
+</html>

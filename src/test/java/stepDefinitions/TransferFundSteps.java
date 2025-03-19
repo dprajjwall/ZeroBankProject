@@ -1,0 +1,87 @@
+package stepDefinitions;
+
+import java.util.Scanner;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import pageObjects.*;
+
+public class TransferFundSteps {
+	
+	WebDriver driver;
+	LoginPage loginpage;
+	MainPage mainpage;
+	OnlineBankingLink banking;
+	AccountSummary summary;
+	TransferFund fund;
+	Verify verify;
+	
+	@Given("User has logged into the banking application for regular transfer")
+	public void user_has_logged_into_the_banking_application_regular() {
+		WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.get("http://zero.webappsecurity.com/login.html");
+
+        loginpage = new LoginPage(driver);
+        loginpage.enterUsername("username");
+        loginpage.enterPassword("password");
+        loginpage.clickSignIn();
+
+        try {
+            System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
+            Thread.sleep(10000);  // Wait for 10 seconds (adjust as needed)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }   
+
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("index.html"), "Login failed! Not redirected to homepage.");
+	}
+
+	@Given("User navigates to the Fund Transfer page for regular transfer")
+	public void user_navigates_to_the_fund_transfer_page_regular() {
+	     mainpage = new MainPage(driver);
+	     banking = mainpage.click_page();
+	     summary = banking.navigate_accountsummary();
+	     fund = summary.navigate();
+	     Assert.assertNotNull(fund, "Failed to click on the Transfer Fund link!");
+	}
+
+	@When("User selects {string} as the source account for regular transfer")
+	public void user_selects_regular_fund_from_account(String string) {
+        fund.selectFromAccount(string);
+	}
+
+	@When("User selects {string} as the destination account for regular transfer")
+	public void user_selects_regular_fund_to_account(String string) {
+		fund.selectToAccount(string);
+	}
+
+	@When("User enters transfer amount {string} and description {string} for regular transfer")
+	public void user_enter_regular_fund_amount_and_description(String string, String string2) {
+	    fund.enterAmount(string);
+	    fund.enterDescription(string2);
+	}
+
+	@When("User clicks on continue button for regular transfer")
+	public void user_click_on_continue_button_regular() {
+	    fund.submission();
+	}
+
+	@When("User reviews the transfer details and submits for regular transfer")
+	public void user_review_the_transfer_details_and_submits_regular() {
+		verify = new Verify(driver);
+	  	verify.navigate_submit();
+	}
+
+	@Then("User should see the success message {string} for regular transfer")
+	public void user_should_see_the_success_message_regular(String string) {
+		String actualMessage = verify.getSuccessMessage();
+        Assert.assertTrue(actualMessage.contains(string), "Success message mismatch!");
+        driver.quit();
+	}
+}
