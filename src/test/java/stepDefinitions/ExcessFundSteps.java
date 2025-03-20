@@ -24,12 +24,14 @@ public class ExcessFundSteps {
 	public void user_logged_into_the_banking_application_excess() {
 		WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://zero.webappsecurity.com/login.html");
 
         loginpage = new LoginPage(driver);
         loginpage.enterUsername("username");
         loginpage.enterPassword("password");
         loginpage.clickSignIn();
+
 
         try {
             System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");

@@ -26,12 +26,14 @@ public class StatementSteps {
     public void user_is_on_statements_page() {
 		WebDriverManager.chromedriver().setup();
     	driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://zero.webappsecurity.com/login.html");
 
         loginPage = new LoginPage(driver);
         loginPage.enterUsername("username");
         loginPage.enterPassword("password");
         loginPage.clickSignIn();
+
 
         try {
             System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");

@@ -30,6 +30,7 @@ public class AddNewPayeeSteps {
         loginpage.enterPassword("password");
         loginpage.clickSignIn();
 
+
         try {
             System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
             Thread.sleep(10000);  // Wait for 10 seconds (adjust as needed)

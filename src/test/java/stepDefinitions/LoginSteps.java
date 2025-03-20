@@ -35,13 +35,12 @@ public class LoginSteps {
 
     @Then("User should be redirected to the Account Summary page")
     public void verify_account_summary_page() {
-        // Manual Action Required
-    	System.out.println("Perform manual action (Captcha, 2FA, etc.). Press Enter to continue...");
-    	Scanner scanner = new Scanner(System.in);
-    	if (scanner.hasNextLine()) {
-    	    scanner.nextLine(); 
-    	}
-    	scanner.close();
+    	  try {
+              System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
+              Thread.sleep(10000);  // Wait for 10 seconds (adjust as needed)
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }  
 
 
         ScreenshotUtil.captureScreenshot(driver, "SuccessfulLogin");

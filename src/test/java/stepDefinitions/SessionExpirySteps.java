@@ -32,9 +32,10 @@ public class SessionExpirySteps {
         loginPage.enterPassword("password");
         loginPage.clickSignIn();
 
+
         try {
             System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
-            Thread.sleep(10000);  // Wait for 10 seconds (adjust as needed)
+            Thread.sleep(10000); 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

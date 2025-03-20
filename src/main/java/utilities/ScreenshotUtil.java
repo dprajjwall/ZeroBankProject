@@ -24,11 +24,11 @@ public class ScreenshotUtil {
             // Save screenshot
             FileUtils.copyFile(srcFile, new File(filePath));
 
-            System.out.println("✅ Screenshot saved at: " + filePath);
+            System.out.println("Screenshot saved at: " + filePath);
             return filePath; // Return the saved file path
 
         } catch (IOException e) {
-            System.out.println("❌ Failed to capture screenshot: " + e.getMessage());
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
             return null; // Return null if screenshot saving fails
         }
     }

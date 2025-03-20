@@ -28,16 +28,16 @@ public class PayBillSteps {
 	    public void user_logs_in_and_navigates_to_pay_bill_page() {
 		 WebDriverManager.chromedriver().setup();
 	        driver = new ChromeDriver();
+	        driver.manage().window().maximize();
 	        driver.get("http://zero.webappsecurity.com/login.html");
 
 	        loginpage = new LoginPage(driver);
 	        loginpage.enterUsername("username");
 	        loginpage.enterPassword("password");
 	        loginpage.clickSignIn();
-
 	        try {
 	            System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
-	            Thread.sleep(10000);  // Wait for 10 seconds (adjust as needed)
+	            Thread.sleep(10000);
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }   

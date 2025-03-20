@@ -9,6 +9,7 @@ import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjects.LoginPage;
 import pageObjects.OnlineBankingLink;
+import utilities.ScreenshotUtil;
 import pageObjects.AccountSummary;
 import pageObjects.MainPage;
 
@@ -25,8 +26,8 @@ public class AccountSummarySteps {
     @Given("I am logged in to Zero Bank")
     public void navigateToMainPageAndLogin() {
 
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://zero.webappsecurity.com/login.html");
 
@@ -36,6 +37,7 @@ public class AccountSummarySteps {
         loginpage.enterPassword("password");
 
         loginpage.clickSignIn();
+
 
         try {
             System.out.println("Waiting for manual action (Captcha, 2FA, etc.)...");
@@ -65,6 +67,8 @@ public class AccountSummarySteps {
         System.out.println("Actual Page Title: " + actualTitle);
 
         Assert.assertEquals(actualTitle, expectedTitle, "Account Summary page title does not match!");
+        ScreenshotUtil.captureScreenshot(driver, "SuccessfulNavigation");
+
         driver.quit();
     }
 }
